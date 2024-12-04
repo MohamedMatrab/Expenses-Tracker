@@ -1,0 +1,13 @@
+Expenses/Expenses.API/bin/
+Expenses/Expenses.API/obj/
+
+Expenses/Expenses.Application/bin/
+Expenses/Expenses.Application/obj/
+
+Expenses/Expenses.Domain/bin/
+Expenses/Expenses.Domain/obj/
+
+Expenses/Expenses.Infrastructure/bin/
+Expenses/Expenses.Infrastructure/obj/
+
+Expenses/.idea/
