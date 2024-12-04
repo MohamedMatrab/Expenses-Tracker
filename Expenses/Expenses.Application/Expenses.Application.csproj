@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="DTO\Expense\Request\" />
+      <Folder Include="DTO\Expense\Response\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Expenses.Infrastructure\Expenses.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
