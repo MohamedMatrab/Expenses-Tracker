@@ -8,7 +8,7 @@ public class Expense() : Base<Guid>(Guid.NewGuid())
 {
     public string UserId { get; set; }
     public decimal Amount { get; set; }
-    public int CategoryId { get; set; }
+    public Guid CategoryId { get; set; }
     public DateTime Date { get; set; }
     public string Description { get; set; } = string.Empty;
 

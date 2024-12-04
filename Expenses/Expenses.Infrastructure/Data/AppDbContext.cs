@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Expenses.Infrastructure.Data;
 
-public class AppDbContext : IdentityDbContext<User,Role,string>
+public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<User,Role,string>(options)
 {
     public DbSet<Budget> Budgets { get; set; }
     public DbSet<Category> Categories { get; set; }

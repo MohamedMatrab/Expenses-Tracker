@@ -13,8 +13,7 @@ public class BudgetRepository(AppDbContext dbContext) : IBudgetRepository
     {
         try
         {
-            token.ThrowIfCancellationRequested();
-            await dbContext.AddAsync(obj, token);
+            await dbContext.Budgets.AddAsync(obj, token);
             return await SaveChangesAsync(token:token,response:obj);
         }
         catch (OperationCanceledException e)
@@ -29,7 +28,7 @@ public class BudgetRepository(AppDbContext dbContext) : IBudgetRepository
     
     public async Task<IEnumerable<Budget>> ReadList(Expression<Func<Budget, bool>> filter, CancellationToken token = default)
     {
-        return await dbContext.Budgets.AsNoTracking().ToListAsync(token);
+        return await dbContext.Budgets.Where(filter).AsNoTracking().ToListAsync(token);
     }
     
     public async Task<Budget> GetByIdAsync(Guid key, CancellationToken token = default)
@@ -46,7 +45,7 @@ public class BudgetRepository(AppDbContext dbContext) : IBudgetRepository
         {
             var budget = await dbContext.Budgets.FirstOrDefaultAsync(e=>e.Id==key,token);
             if(budget is null)
-                return new Error($"{nameof(BudgetRepository)}.${nameof(Update)}.Notfound",$"Could Not Find Budget with key {key} !");
+                return new Error($"{nameof(BudgetRepository)}.${nameof(Update)}.KeyNotFound",$"Could Not Find Budget with key {key} !");
             dbContext.Entry(budget).CurrentValues.SetValues(obj);
             return await SaveChangesAsync(token:token,response:budget);
         }
@@ -67,7 +66,7 @@ public class BudgetRepository(AppDbContext dbContext) : IBudgetRepository
         {
             existingEntity = await dbContext.Budgets.FirstOrDefaultAsync(e => e.Id == key, token);
             if (existingEntity == null)
-                return new Error($"{nameof(BudgetRepository)}.${nameof(Delete)}.Notfound",$"Could Not Find Budget with key {key} !");
+                return new Error($"{nameof(BudgetRepository)}.${nameof(Delete)}.KeyNotFound",$"Could Not Find Budget with key {key} !");
             dbContext.Budgets.Remove(existingEntity);
             return await SaveChangesAsync(token:token,response:existingEntity);
         }
