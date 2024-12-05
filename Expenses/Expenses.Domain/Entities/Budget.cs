@@ -2,9 +2,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Expenses.Domain.Entities.Auth;
 using Expenses.Domain.Entities.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace Expenses.Domain.Entities;
 
+[Index(nameof(Month),nameof(Year),IsUnique = true)]
 public class Budget() : Base<Guid>(Guid.NewGuid())
 {
     [Required] public string UserId { get; set; }

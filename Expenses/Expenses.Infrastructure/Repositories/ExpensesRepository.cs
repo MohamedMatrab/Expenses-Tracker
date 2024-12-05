@@ -26,9 +26,21 @@ public class ExpensesRepository(AppDbContext dbContext) : IExpenseRepository
         }
     }
 
-    public async Task<IEnumerable<Expense>> ReadList(Expression<Func<Expense, bool>> filter, CancellationToken token = default)
+    public async Task<IEnumerable<Expense>> ReadList(Expression<Func<Expense, bool>> filter, string sortOrder = "asc", int pageNumber = 0, int pageSize = 10,
+        CancellationToken token = default)
     {
-        return await dbContext.Expenses.Where(filter).AsNoTracking().ToListAsync(token);
+        var query = dbContext.Expenses.Where(filter);
+        query = sortOrder switch
+        {
+            "amount" => query.OrderBy(e => e.Amount),
+            "amount_desc" => query.OrderByDescending(e => e.Amount),
+            "date" => query.OrderBy(e => e.Date),
+            "date_desc" => query.OrderByDescending(e => e.Date),
+            "desc" => query.OrderDescending(),
+            _ => query
+        };
+        query = query.Skip(pageNumber * pageSize).Take(pageSize);
+        return await query.AsNoTracking().ToListAsync(token);
     }
 
     public async Task<Expense> GetByIdAsync(Guid key, CancellationToken token = default)
@@ -90,11 +102,26 @@ public class ExpensesRepository(AppDbContext dbContext) : IExpenseRepository
 
     public async Task<IEnumerable<Expense>> GetExpensesByUserAndMonthAsync(string userId, int month, int year, CancellationToken token = default)
     {
-        return await ReadList(e => e.Date.Month == month && e.Date.Month == month && e.UserId == userId,token);
+        return await ReadList(e => e.Date.Month == month && e.Date.Month == month && e.UserId == userId,token:token);
     }
 
     public async Task<IEnumerable<Expense>> GetExpensesByCategoryAsync(Guid categoryId, CancellationToken token = default)
     {
-        return await ReadList(e => e.CategoryId == categoryId,token);
+        return await ReadList(e => e.CategoryId == categoryId,token:token);
+    }
+
+    public decimal GetMonthTotalExpenses(int month, int year, string userId, CancellationToken token = default)
+    {
+        return dbContext.Expenses
+            .Where(e => e.Date.Month == month && e.Date.Year == year && e.UserId==userId)
+            .Sum(e => e.Amount);
+
+    }
+
+    public bool IsAmountAvailable(string userId, decimal amount,int year,int month, CancellationToken token = default)
+    {
+        var monthBudget = dbContext.Budgets.FirstOrDefault(e => e.Month == month && e.Year == year)?.MonthlyLimit ?? 0;
+        return dbContext.Expenses.Where(e=>e.Date.Month==month && e.Date.Year==year && e.UserId==userId)
+            .Sum(e=>e.Amount) > monthBudget;
     }
 }

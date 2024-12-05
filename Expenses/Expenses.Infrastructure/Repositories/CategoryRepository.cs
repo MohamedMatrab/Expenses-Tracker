@@ -25,10 +25,22 @@ public class CategoryRepository(AppDbContext dbContext) : ICategoryRepository
             return new Error($"{nameof(CategoryRepository)}.${nameof(Create)}.Failure","Error When Trying To Add Category !");
         }
     }
-    
-    public async Task<IEnumerable<Category>> ReadList(Expression<Func<Category, bool>> filter, CancellationToken token = default)
+
+    public async Task<IEnumerable<Category>> ReadList(Expression<Func<Category, bool>> filter, string sortOrder = "asc", int pageNumber = 0, int pageSize = 10,
+        CancellationToken token = default)
     {
-        return await dbContext.Categories.Where(filter).AsNoTracking().ToListAsync(token);
+        var query = dbContext.Categories.Where(filter);
+        query = sortOrder switch
+        {
+            "name" => query.OrderBy(e => e.Name),
+            "name_desc" => query.OrderByDescending(e => e.Name),
+            "expenses_amount" => query.OrderBy(e => e.Expenses.Sum(exp=>exp.Amount)),
+            "expenses_amount_desc" => query.OrderByDescending(e => e.Expenses.Sum(exp=>exp.Amount)),
+            "desc" => query.OrderDescending(),
+            _ => query
+        };
+        query = query.Skip(pageNumber * pageSize).Take(pageSize);
+        return await query.AsNoTracking().ToListAsync(token);
     }
 
     public async Task<Category> GetByIdAsync(Guid key, CancellationToken token = default)

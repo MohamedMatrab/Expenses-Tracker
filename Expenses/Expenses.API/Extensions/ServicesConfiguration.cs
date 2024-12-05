@@ -1,3 +1,5 @@
+using Expenses.Application.IServices;
+using Expenses.Application.Services;
 using Expenses.Domain.IRepositories;
 using Expenses.Infrastructure.Repositories;
 
@@ -10,6 +12,15 @@ public static class ServicesConfiguration
         #region Repositories
 
         serviceCollection.AddTransient<IBudgetRepository,BudgetRepository>();
+        serviceCollection.AddTransient<IExpenseRepository,ExpensesRepository>();
+        serviceCollection.AddTransient<IBudgetRepository,BudgetRepository>();
+        serviceCollection.AddTransient<ICategoryRepository,CategoryRepository>();
+
+        #endregion
+
+        #region Services
+
+        serviceCollection.AddScoped<IExpensesService,ExpensesService>();
 
         #endregion
     }

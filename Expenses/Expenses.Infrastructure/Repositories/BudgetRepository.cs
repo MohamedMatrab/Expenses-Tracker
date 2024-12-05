@@ -25,10 +25,22 @@ public class BudgetRepository(AppDbContext dbContext) : IBudgetRepository
             return new Error($"{nameof(BudgetRepository)}.${nameof(Create)}.Failure","Error When Trying To Add Budget !");
         }
     }
-    
-    public async Task<IEnumerable<Budget>> ReadList(Expression<Func<Budget, bool>> filter, CancellationToken token = default)
+
+    public async Task<IEnumerable<Budget>> ReadList(Expression<Func<Budget, bool>> filter, string sortOrder = "asc", int pageNumber = 0, int pageSize = 10,
+        CancellationToken token = default)
     {
-        return await dbContext.Budgets.Where(filter).AsNoTracking().ToListAsync(token);
+        var query = dbContext.Budgets.Where(filter);
+        query = sortOrder switch
+        {
+            "monthly_limit" => query.OrderBy(e => e.MonthlyLimit),
+            "monthly_limit_desc" => query.OrderByDescending(e => e.MonthlyLimit),
+            "month" => query.OrderBy(e => e.Year*12 + e.Month),
+            "month_desc" => query.OrderByDescending(e => e.Year*12 + e.Month),
+            "desc" => query.OrderDescending(),
+            _ => query
+        };
+        query = query.Skip(pageNumber * pageSize).Take(pageSize);
+        return await query.AsNoTracking().ToListAsync(token);
     }
     
     public async Task<Budget> GetByIdAsync(Guid key, CancellationToken token = default)

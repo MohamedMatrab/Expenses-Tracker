@@ -26,9 +26,12 @@ public class NotificationRepository(AppDbContext dbContext) : INotificationRepos
         }
     }
 
-    public async Task<IEnumerable<Notification>> ReadList(Expression<Func<Notification, bool>> filter, CancellationToken token = default)
+    public async Task<IEnumerable<Notification>> ReadList(Expression<Func<Notification, bool>> filter, string sortOrder = "asc", int pageNumber = 0, int pageSize = 10,
+        CancellationToken token = default)
     {
-        return await dbContext.Notifications.Where(filter).AsNoTracking().ToListAsync(token);
+        var query = dbContext.Notifications.Where(filter);
+        query = query.Skip(pageNumber * pageSize).Take(pageSize);
+        return await query.AsNoTracking().ToListAsync(token);
     }
 
     public async Task<Notification> GetByIdAsync(Guid key, CancellationToken token = default)
