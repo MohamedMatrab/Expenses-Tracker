@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="dialog-title">Add Category</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-form">
+  <mat-dialog-content >
+    <div class="form-container">
+      <mat-form-field appearance="outline" class="w-100" >
+        <mat-label>Category Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="form.get('name')?.hasError('required')">
+          Category Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100" >
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="3"></textarea>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button type="button" class="cancel-btn" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

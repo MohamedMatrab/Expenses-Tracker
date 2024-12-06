@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A5F39D36-5E7C-452F-B4FE-E48ACE93B0B5}|Expenses.Application\\Expenses.Application.csproj|c:\\users\\moham\\onedrive\\bureau\\dotnet projects\\expenses-tracker\\expenses\\expenses.application\\dto\\category\\response\\categoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5F39D36-5E7C-452F-B4FE-E48ACE93B0B5}|Expenses.Application\\Expenses.Application.csproj|solutionrelative:expenses.application\\dto\\category\\response\\categoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BDA17A1-629C-4FEF-972B-A922897A398D}|Expenses.Domain\\Expenses.Domain.csproj|c:\\users\\moham\\onedrive\\bureau\\dotnet projects\\expenses-tracker\\expenses\\expenses.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BDA17A1-629C-4FEF-972B-A922897A398D}|Expenses.Domain\\Expenses.Domain.csproj|solutionrelative:expenses.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5F39D36-5E7C-452F-B4FE-E48ACE93B0B5}|Expenses.Application\\Expenses.Application.csproj|c:\\users\\moham\\onedrive\\bureau\\dotnet projects\\expenses-tracker\\expenses\\expenses.application\\services\\expensesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5F39D36-5E7C-452F-B4FE-E48ACE93B0B5}|Expenses.Application\\Expenses.Application.csproj|solutionrelative:expenses.application\\services\\expensesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,8 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryResponse.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Application\\DTO\\Category\\Response\\CategoryResponse.cs",
+              "RelativeDocumentMoniker": "Expenses.Application\\DTO\\Category\\Response\\CategoryResponse.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Application\\DTO\\Category\\Response\\CategoryResponse.cs",
+              "RelativeToolTip": "Expenses.Application\\DTO\\Category\\Response\\CategoryResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T21:20:34.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Domain\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "Expenses.Domain\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Domain\\Entities\\Category.cs",
+              "RelativeToolTip": "Expenses.Domain\\Entities\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T18:39:32.513Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -110,20 +144,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ExpensesService.cs",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Application\\Services\\ExpensesService.cs",
               "RelativeDocumentMoniker": "Expenses.Application\\Services\\ExpensesService.cs",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Application\\Services\\ExpensesService.cs",
               "RelativeToolTip": "Expenses.Application\\Services\\ExpensesService.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAvAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T16:33:46.725Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IExpensesService.cs",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Bureau\\dotnet Projects\\Expenses-Tracker\\Expenses\\Expenses.Application\\IServices\\IExpensesService.cs",
               "RelativeDocumentMoniker": "Expenses.Application\\IServices\\IExpensesService.cs",
@@ -131,8 +165,7 @@
               "RelativeToolTip": "Expenses.Application\\IServices\\IExpensesService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T16:34:54.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T16:34:54.931Z"
             }
           ]
         },

@@ -21,6 +21,7 @@ public static class ServicesConfiguration
         #region Services
 
         serviceCollection.AddScoped<IExpensesService,ExpensesService>();
+        serviceCollection.AddScoped<ICategoriesService,CategoriesService>();
 
         #endregion
     }

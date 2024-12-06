@@ -1,0 +1,99 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <div class="d-flex justify-content-between">
+      <mat-card-title>Categories</mat-card-title>
+      <button mat-flat-button color="primary" class="m-r-8" (click)="openDialog()"><mat-icon>add</mat-icon>
+        <span>Add</span></button>
+    </div>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource1" matSort (matSortChange)="announceSortChange($event)" class="w-100">
+        <ng-container  matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header sortActionDescription="Sort by Name"
+            class="f-w-600 mat-subtitle-1 f-s-14 p-l-0"
+          >
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element" class="p-l-0">
+            <div class="d-flex align-items-center">
+              <div>
+                <h6 class="mat-subtitle-1 f-s-14 f-w-600">
+                  {{ element.name }}
+                </h6>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14 p-l-0"
+          >
+            Description
+          </th>
+          <td mat-cell *matCellDef="let element" class="p-l-0">
+            <div class="d-flex align-items-center">
+              <div>
+                <h6 class="mat-subtitle-1 f-s-14 f-w-300">
+                  {{ element.description }}
+                </h6>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expenses_amount">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header sortActionDescription="Sort by Month Total"
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          >
+            Month Total
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <h6 class="mat-body-1 f-s-16 m-b-4">
+              <span class="text-dark f-w-600">${{ element.monthTotal }} </span>
+            </h6>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="budget">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="f-w-600 mat-subtitle-1 f-s-14"
+          ></th>
+          <td mat-cell *matCellDef="let element" class="mat-body-1">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+      </table>
+      <h4 *ngIf="dataSource1.length==0">No Categories Available</h4>
+      <mat-paginator [length]="100"
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

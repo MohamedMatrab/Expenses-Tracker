@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Expenses.Application.DTO.Category.Request;
+using Expenses.Application.DTO.Category.Response;
 using Expenses.Application.DTO.Expense.Request;
 using Expenses.Application.DTO.Expense.Response;
 using Expenses.Domain.Entities;
@@ -17,6 +19,10 @@ public static class MapperExtension
             cfg.CreateMap<ExpenseRequest, Expense>();
             cfg.CreateMap<Expense, ExpenseResponse>();
             cfg.CreateMap<IEnumerable<Expense>, IEnumerable<ExpenseResponse>>();
+            
+            cfg.CreateMap<CategoryRequest,Category>();
+            cfg.CreateMap<Category, CategoryResponse>();
+            cfg.CreateMap<IEnumerable<Category>, IEnumerable<CategoryResponse>>();
             
         }).CreateMapper());
         

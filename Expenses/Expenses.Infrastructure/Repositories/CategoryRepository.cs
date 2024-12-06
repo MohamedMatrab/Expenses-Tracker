@@ -29,7 +29,7 @@ public class CategoryRepository(AppDbContext dbContext) : ICategoryRepository
     public async Task<IEnumerable<Category>> ReadList(Expression<Func<Category, bool>> filter, string sortOrder = "asc", int pageNumber = 0, int pageSize = 10,
         CancellationToken token = default)
     {
-        var query = dbContext.Categories.Where(filter);
+        var query = dbContext.Categories.Include(e=>e.Expenses).Where(filter);
         query = sortOrder switch
         {
             "name" => query.OrderBy(e => e.Name),
