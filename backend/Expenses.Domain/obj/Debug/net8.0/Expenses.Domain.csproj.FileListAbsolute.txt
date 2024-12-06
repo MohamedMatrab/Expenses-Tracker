@@ -1,0 +1,13 @@
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\bin\Debug\net8.0\Expenses.Domain.deps.json
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\bin\Debug\net8.0\Expenses.Domain.dll
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\bin\Debug\net8.0\Expenses.Domain.pdb
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.csproj.AssemblyReference.cache
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.AssemblyInfoInputs.cache
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.AssemblyInfo.cs
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.csproj.CoreCompileInputs.cache
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.sourcelink.json
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.dll
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\refint\Expenses.Domain.dll
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\Expenses.Domain.pdb
+C:\Users\moham\OneDrive\Bureau\dotnet Projects\Expenses-Tracker\Expenses\Expenses.Domain\obj\Debug\net8.0\ref\Expenses.Domain.dll
